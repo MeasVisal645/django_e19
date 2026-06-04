@@ -1,7 +1,17 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 # Create your views here.
+def index(request):
+  context = {
+    'username': 'SuperCoder99',
+    'age': 25,
+    'is_premium': True,
+    'movies': []
+  }
+  
+  return render(request, 'blog/index.html', context)
+
 def welcome_view(request):
   return HttpResponse("<h1>Welcome to my Django app!</h1>")
 
